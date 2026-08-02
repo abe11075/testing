@@ -33,6 +33,7 @@ if not ok or not validation or not validation.valid then
     return
 end
 
-getgenv().LYNX_KEY = userKey
+getgenv().LYNX_KEY   = userKey
+getgenv().SCRIPT_KEY = userKey
 
 loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/059ada0f7145c09bb71b53e71591f42299ab7ffd86b544758bc659b37a9e7169/download"))()
