@@ -1,26 +1,18 @@
 local Junkie = loadstring(game:HttpGet("https://jnkie.com/sdk/library.lua"))()
-Junkie.service = "YOUR_SERVICE_NAME"
-Junkie.identifier = "YOUR_IDENTIFIER"
-Junkie.provider = "YOUR_PROVIDER"
+Junkie.service = "LynxKey"
+Junkie.identifier = "1169210"
+Junkie.provider = "lynxx"
 
 local key = getgenv().SCRIPT_KEY or ""
 
 if #key == 0 then
-    Library:MakeNotify({
-        Title = "Lynx",
-        Description = "No key provided!",
-        Delay = 5,
-    })
+    warn("[Lynx] No key! Set getgenv().SCRIPT_KEY first.")
     return
 end
 
 local validation = Junkie.check_key(key)
 if not validation.valid then
-    Library:MakeNotify({
-        Title = "Lynx",
-        Description = validation.message or "Invalid key!",
-        Delay = 5,
-    })
+    warn("[Lynx] " .. (validation.error or "Invalid key!"))
     return
 end
 
